@@ -1,0 +1,178 @@
+@cardbackground: #fff2f2;
+@buttonbackgroundcolor: #e14141;
+@activebuttonbackgroundcolor: lighten(@buttonbackgroundcolor, 20%);
+
+.content {
+  z-index: 0;
+  .masonry-item {
+    width: 400px;
+    padding: 15px;
+
+    .post {
+      background-color: @cardbackground;
+      border-radius: 10px;
+      box-shadow: 0 0 0 0 black;
+      transition: all 0.1s ease-in-out;
+
+      span {
+        display: block;
+        padding: 15px 10px;
+      }
+
+      &__header {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      &__body {
+        font-size: 15px;
+      }
+
+      &__controls {
+        padding: 0 20px 20px 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        color: @buttonbackgroundcolor;
+
+        .left-side {
+          width: 60%;
+
+          button {
+            width: 120px;
+            height: 40px;
+            border-radius: 5px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid @buttonbackgroundcolor;
+            cursor: pointer;
+            background-color: @cardbackground;
+            color: @buttonbackgroundcolor;
+            font-size: 13px;
+            text-transform: uppercase;
+            outline: none;
+
+            &:hover {
+              transition: background-color 0.3s ease-in-out;
+              background-color: @buttonbackgroundcolor;
+              color: @cardbackground;
+            }
+
+            &:active {
+              transition: background-color 0.1s ease;
+              background-color: @activebuttonbackgroundcolor;
+            }
+
+            i {
+              margin-right: 10px;
+            }
+          }
+        }
+
+        .right-side {
+          width: 40%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+
+          button {
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            background-color: @cardbackground;
+            color: @buttonbackgroundcolor;
+            outline: none;
+            margin: 0 5px;
+
+            &:hover {
+              background-color: #d8cbcb;
+            }
+
+            &:active {
+              color: @activebuttonbackgroundcolor;
+            }
+          }
+        }
+      }
+
+      &__comments {
+        padding: 10px;
+
+        .comment {
+          background-color: white;
+          margin: 10px 0;
+          border: 1px solid lightgray;
+          border-radius: 5px;
+
+          &__name {
+            font-size: 20px;
+            font-weight: 700;
+            padding: 5px;
+          }
+
+          &__email {
+            text-transform: lowercase;
+            padding: 2px 5px;
+          }
+
+          &__body {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            &__text {
+              width: 90%;
+            }
+
+            &__like {
+              width: 10%;
+              cursor: pointer;
+
+              &:hover {
+                color: @buttonbackgroundcolor;
+              }
+            }
+          }
+        }
+
+        &__add {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+
+          textarea {
+            font-family: 'Quicksand', sans-serif;
+            width: 70%;
+            resize: none;
+            border-radius: 5px;
+          }
+
+          button {
+            width: 20%;
+            border: none;
+            background-color: @buttonbackgroundcolor;
+            color: white;
+            height: 40px;
+            text-transform: uppercase;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+
+            &:active {
+              color: @activebuttonbackgroundcolor;
+            }
+          }
+        }
+      }
+    }
+  }
+}

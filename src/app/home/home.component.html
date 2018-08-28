@@ -1,0 +1,34 @@
+<div class="content">
+  <ngx-masonry>
+    <ngxMasonryItem class="masonry-item" *ngFor="let post of posts">
+      <div class="post">
+        <span class="post__header">{{ post.title }}</span>
+        <span class="post__body">{{ post.body }}</span>
+        <div class="post__controls">
+          <div class="left-side">
+            <button (click)="commentsButtonClick(post)" class="post__controls__comments"><i class="fas fa-comments"></i>Comments</button>
+          </div>
+          <div class="right-side">
+            <button (click)="likeButtonClick(post)" class="post__controls__like"><i class="{{ post.like == null ? 'far fa-heart' : post.like }}"></i></button>
+            <button class="post__controls__share"><i class="fas fa-share"></i></button>
+            <button class="post__controls__twitter"><i class="fab fa-twitter"></i></button>
+          </div>
+        </div>
+        <div *ngIf="post.comments" class="post__comments">
+          <div class="comment" *ngFor="let comment of post.comments">
+            <span class="comment__name">{{ comment.name }}</span>
+            <span class="comment__email"><small>{{ comment.email }}</small></span>
+            <div class="comment__body">
+              <span class="comment__body__text">{{ comment.body }}</span>
+              <span (click)="likeButtonClick(comment)" class="comment__body__like"><i class="{{ comment.like == null ? 'far fa-heart' : comment.like }}"></i></span>
+            </div>
+          </div>
+          <div class="post__comments__add">
+            <textarea rows="3" placeholder="Comment..." #commentText></textarea>
+            <button (click)="addComment(post, commentText.value)">Add</button>
+          </div>
+        </div>
+      </div>
+    </ngxMasonryItem>
+  </ngx-masonry>
+</div>
